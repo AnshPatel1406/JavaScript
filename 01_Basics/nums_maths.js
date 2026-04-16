@@ -39,7 +39,7 @@ console.log(Math); // its an Object
 // Math.random()*10 
 // Math.random()+1 to avoid 0
 
-// To Generate Numbers Between a Range 
+// To Generate Numbers Between a R
 
 const min = 10
 const max = 20
