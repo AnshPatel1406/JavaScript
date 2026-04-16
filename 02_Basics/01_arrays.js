@@ -27,3 +27,34 @@ console.log(myArr)
 
 // unshift means push but at Begining and Shift is pop from beggining
 
+console.log(myArr.includes("Ansh")); // return true or false 
+
+console.log(myArr.indexOf("Ansh")); // return index after searching 
+
+// Convert an Arry to String
+
+const newArr = myArr.join()
+console.log(newArr);
+console.log(typeof newArr);
+
+
+
+// Slice and Splice
+
+// SLice
+
+console.log("A", myArr);
+ 
+const Arr2 =  myArr.slice(1,3) // index 1 and 2 , 3 is exclusive
+
+console.log(Arr2);
+
+// Splice ==> used to include the last given parameter 
+
+const Arr3 = myArr.splice(1,3) // Includes index 1,2 and 3 
+console.log(Arr3);
+
+// Here Splice will Remove all the Index that are given from the Original Array
+console.log(myArr);
+
+
