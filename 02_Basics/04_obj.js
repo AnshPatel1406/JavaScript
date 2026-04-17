@@ -56,7 +56,16 @@ console.log(tinderUser.hasOwnProperty('isLoggedIn')); // To check if an Object h
 
 
 
+// Rename Key name , because we use it very frequently 
+// Known as // Destructuring 
+let object = {
+    "abcdefghijklmnop" : "HHEHEEHE"
+}
 
+const {abcdefghijklmnop: renamed} = object
+
+// console.log(abcdefghijklmnop);
+console.log(renamed);
 
 
 
