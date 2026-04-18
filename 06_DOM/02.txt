@@ -1,0 +1,6 @@
+document.querySelectorAll will return a NodeList
+
+We can use Foreach on NodeList
+
+if we need to use Map Functionality we need to convert the NodeList to Array
+
