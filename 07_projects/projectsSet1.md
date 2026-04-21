@@ -73,3 +73,27 @@ form.addEventListener('submit', function (e) {
 
 
 ```
+
+## Project 3
+```javascript
+const clock = document.getElementById('clock');
+// document.querySelector('#clock');
+
+let date = new Date();
+
+console.log(date.toLocaleTimeString());
+// will display time in console when we refresh
+
+// but we want live clock
+
+// repeatdly call function at an interval
+// make sure syntax is correct
+setInterval(function () {
+  let date = new Date();
+
+  // console.log(date.toLocaleTimeString())
+  clock.innerHTML = date.toLocaleTimeString()
+}, 1000);
+
+
+```
