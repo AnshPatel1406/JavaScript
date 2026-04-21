@@ -51,6 +51,25 @@ button.forEach(function (btn) {
 
 ```javascript
 
+const form = document.querySelector('form');
+form.addEventListener('submit', function (e) {
+  e.preventDefault(); // prevents get and Post method in form
+  // use this both inside the function
+  // when event happens // writing outside is useless
+  const height = parseInt(document.querySelector('#height').value);
+  const weight = parseInt(document.querySelector('#weight').value);
+  const results = document.querySelector('#results');
+
+  if (height < 0 || isNaN(height)) {
+    results.innerHTML = 'Please Give a Valid Height'; 
+  } else if (weight === '' || weight < 0 || isNaN(weight)) {
+    results.innerHTML = 'Please Give a Valid Height';
+  } else {
+    const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+    // show the result
+    results.innerHTML = `<span>${bmi}</span>`;
+  }
+});
 
 
 ```
