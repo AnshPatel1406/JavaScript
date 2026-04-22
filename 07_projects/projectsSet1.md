@@ -97,3 +97,100 @@ setInterval(function () {
 
 
 ```
+
+## Project 4
+```javascript
+
+let randomNumber = parseInt(Math.random() * 100 + 1);
+
+const submit = document.querySelector('#subt');
+let userInput = document.querySelector('#guessField');
+const guessSlot = document.querySelector('.guesses');
+const remaining = document.querySelector('.lastResult');
+const lowOrHi = document.querySelector('.lowOrHi');
+const startOver = document.querySelector('.resultParas');
+const paragraph = document.createElement('p'); // You named this 'paragraph'
+
+let prevGuess = [];
+let numOfGuess = 1;
+
+let playGame = true;
+
+if (playGame) {
+  submit.addEventListener('click', function (e) {
+    e.preventDefault();
+    const guess = parseInt(userInput.value);
+    validateGuess(guess);
+  });
+}
+
+function validateGuess(guess) {
+  if (isNaN(guess)) {
+    alert('Please Enter a Valid Number');
+  } else if (guess < 1) {
+    alert('Please Enter a Valid Number');
+  } else if (guess > 100) {
+    alert('Please Enter Number Less Than 100');
+  } else {
+    prevGuess.push(guess);
+    if (numOfGuess === 10) {
+      // Changed to 10 so the 10th guess is the last
+      displayGuess(guess);
+      displayMessage(`Game Over. Random Number was ${randomNumber}`);
+      endGame();
+    } else {
+      displayGuess(guess);
+      checkGuess(guess);
+    }
+  }
+}
+
+function checkGuess(guess) {
+  if (guess === randomNumber) {
+    displayMessage(`You Guessed it Right`);
+    endGame();
+  } else if (guess < randomNumber) {
+    displayMessage('Number is TOOO low');
+  } else if (guess > randomNumber) {
+    displayMessage('Number is Too High');
+  }
+}
+
+function displayGuess(guess) {
+  userInput.value = '';
+  guessSlot.innerHTML += `${guess}  `;
+  numOfGuess++;
+  remaining.innerHTML = `${11 - numOfGuess}`;
+}
+
+function displayMessage(message) {
+  lowOrHi.innerHTML = `<h2>${message}</h2>`;
+}
+
+function endGame() {
+  userInput.value = '';
+  userInput.setAttribute('disabled', '');
+  paragraph.classList.add('button'); // Fixed: changed 'p' to 'paragraph'
+  paragraph.innerHTML = `<h2 id='newGame'>Start New Game</h2>`; // Fixed: changed 'p' to 'paragraph'
+  startOver.appendChild(paragraph);
+  playGame = false;
+  newGame();
+}
+
+function newGame() {
+  const newGameButton = document.querySelector('#newGame');
+  newGameButton.addEventListener('click', (e) => {
+    randomNumber = parseInt(Math.random() * 100 + 1);
+    prevGuess = [];
+    numOfGuess = 1;
+    guessSlot.innerHTML = '';
+    remaining.innerHTML = `${11 - numOfGuess}`; // Added: reset the UI display
+    lowOrHi.innerHTML = ''; // Added: clear the last message
+    userInput.removeAttribute('disabled');
+    startOver.removeChild(paragraph);
+    playGame = true;
+  });
+}
+
+
+```
