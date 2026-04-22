@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Java Script</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    setTimeout(function(){
+        console.log("Ansh");
+        
+    },2000) // setInterval and all are part of window //are browser function // apis has diffrent functions // these are not core js functions
+    //TimeOut will run after a time
+    // setInterval will run again and again at a certain interval 
+
+    const sayAnsh = function(){
+        console.log("Ansh");
+        
+    }
+    
+    const changeTextAfterTime = function(){document.querySelector('h1').innerHTML = "Ansh Patel"
+}
+    setTimeout(sayAnsh,2000) // give reference // no () // using () will run the function or give error
+    const stopMe = setTimeout(changeTextAfterTime,2000)
+
+
+    // to stop in between there are function 
+
+    document.querySelector('#stop').addEventListener('click',(e)=>{
+        clearTimeout(stopMe)
+        
+    })
+      
+</script>
+</html>
