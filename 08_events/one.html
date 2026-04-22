@@ -22,60 +22,89 @@
     
 </body>
 <script>
-    // document.getElementById('owl').onclick = function(){
-    //     alert("OWL CLICK");
-    // }
+    // // document.getElementById('owl').onclick = function(){
+    // //     alert("OWL CLICK");
+    // // }
 
-    //document.getElementById('owl').addEventListener('click',(e)=>{
-    //    console.log(e); // we get PointerEvent in console contains information
-        // type, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget
-        // clientX, clientY, screenX, screenY, tiltX
-        // altkey, ctrlKey, shiftKey, keyCode
+    // //document.getElementById('owl').addEventListener('click',(e)=>{
+    // //    console.log(e); // we get PointerEvent in console contains information
+    //     // type, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget
+    //     // clientX, clientY, screenX, screenY, tiltX
+    //     // altkey, ctrlKey, shiftKey, keyCode
 
-    // OLD USECASES
-    // Other Approachs // was used before 
-    // attachEvent()
-    // jQuery - on
+    // // OLD USECASES
+    // // Other Approachs // was used before 
+    // // attachEvent()
+    // // jQuery - on
 
         
-    //    alert("Owl Clicked");
+    // //    alert("Owl Clicked");
 
-    //},false) // ** Event Propogation **
-    // false = event Bubbling  // true = even Capturing
+    // //},false) // ** Event Propogation **
+    // // false = event Bubbling  // true = even Capturing
 
-    // Third parameter is false by default // if we dont write its default false 
+    // // Third parameter is false by default // if we dont write its default false 
     
-    document.getElementById('images').addEventListener('click',(e)=>{
-        console.log("clicked inside the ul");
+    // document.getElementById('images').addEventListener('click',(e)=>{
+    //     console.log("clicked inside the ul");
         
-    },false) 
+    // },false) 
 
-     document.getElementById('owl').addEventListener('click',(e)=>{
-        console.log(e);
-         console.log("Owl Clicked");
+    //  document.getElementById('owl').addEventListener('click',(e)=>{
+    //     console.log(e);
+    //      console.log("Owl Clicked");
 
-    },false) 
+    // },false) 
 
-    // in false // first owl clicked then clicked inside the ul // bubbling // goes down to up // child to parent 
+    // // in false // first owl clicked then clicked inside the ul // bubbling // goes down to up // child to parent 
 
-    // in true // first clicked insdie ul then owl clickd will be displayed // parent first then child
+    // // in true // first clicked insdie ul then owl clickd will be displayed // parent first then child
 
-    // to stop propogation // only inner event needed no outer execution needed
+    // // to stop propogation // only inner event needed no outer execution needed
 
-    document.getElementById('owl').addEventListener('click',(e)=>{
-        console.log(e);
-         console.log("Owl Clicked");
-         e.stopPropagation(); // stopPropogation will stop the propogation and the parent event will not be implemented
-    },false) 
+    // document.getElementById('owl').addEventListener('click',(e)=>{
+    //     console.log(e);
+    //      console.log("Owl Clicked");
+    //      e.stopPropagation(); // stopPropogation will stop the propogation and the parent event will not be implemented
+    // },false) 
 
     
-    // preventDefault 
+    // // preventDefault 
 
-    document.getElementById('google').addEventListener('click',(e)=>{console.log('googleClicked'); e.preventDefault()},false)
+    // document.getElementById('google').addEventListener('click',(e)=>{console.log('googleClicked'); e.preventDefault()},false)
 
     // This will not take us to google.com , just print the consoleMessage 
     // this is often used in forms 
-    
+
+
+
+    // Click the Photo and it DisAppears
+
+    document.querySelector('#images').addEventListener('click',(e)=>{
+        console.log(e); // to check if event is comming or not
+        console.log(e.target); // gives <img>
+        console.log(e.target.parentNode); // li is parent of img // its returns li
+        // Solution of Problem // problem is commented down there 
+        if(e.target.tagName === 'IMG') // img,li,ul,a etc...
+        {
+            console.log(e.target.id );
+            
+            // down commented code
+            let removeIt = e.target.parentNode
+            removeIt.remove()  
+
+        }
+
+        // let removeIt = e.target.parentNode
+        // removeIt.remove()  
+        // removeIt.parentNode.removeChild(removeIt)
+        //OR
+
+        //Problem // ** Here When we Click on Google , its a LI , and its Parent is ul so entire list will be removed
+         // or when we click on li , not image , also the entire list will vanish 
+
+
+    })
 
 
     
