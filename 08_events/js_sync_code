@@ -1,0 +1,21 @@
+Part2 from 4:00 to 4:19
+
+JavaScript (Default)
+--> Synchronous (execution)
+--> Single Threaded 
+
+
+console 1
+console 2
+one-by-one
+
+Each Operation Waits for LAst ONe Before Execution 
+
+
+
+
+Blocking                vs       Non Blocking Code
+
+Block flow of Execution ||  Does Not block execution
+Read File Sync          ||  Read File Async
+
