@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color: #414141; color:aliceblue;">
+    <h2>Amazing Images</h2>
+    <div>
+             <ul id="images">
+               <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+             <!--We Can use onclick="alert('Error')" in tags but its not good approach  -->
+             </ul>
+    </div>
+   
+    
+</body>
+<script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert("OWL CLICK");
+    // }
+
+    //document.getElementById('owl').addEventListener('click',(e)=>{
+    //    console.log(e); // we get PointerEvent in console contains information
+        // type, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget
+        // clientX, clientY, screenX, screenY, tiltX
+        // altkey, ctrlKey, shiftKey, keyCode
+
+    // OLD USECASES
+    // Other Approachs // was used before 
+    // attachEvent()
+    // jQuery - on
+
+        
+    //    alert("Owl Clicked");
+
+    //},false) // ** Event Propogation **
+    // false = event Bubbling  // true = even Capturing
+
+    // Third parameter is false by default // if we dont write its default false 
+    
+    document.getElementById('images').addEventListener('click',(e)=>{
+        console.log("clicked inside the ul");
+        
+    },false) 
+
+     document.getElementById('owl').addEventListener('click',(e)=>{
+        console.log(e);
+         console.log("Owl Clicked");
+
+    },false) 
+
+    // in false // first owl clicked then clicked inside the ul // bubbling // goes down to up // child to parent 
+
+    // in true // first clicked insdie ul then owl clickd will be displayed // parent first then child
+
+    // to stop propogation // only inner event needed no outer execution needed
+
+    document.getElementById('owl').addEventListener('click',(e)=>{
+        console.log(e);
+         console.log("Owl Clicked");
+         e.stopPropagation(); // stopPropogation will stop the propogation and the parent event will not be implemented
+    },false) 
+
+    
+    // preventDefault 
+
+    document.getElementById('google').addEventListener('click',(e)=>{console.log('googleClicked'); e.preventDefault()},false)
+
+    // This will not take us to google.com , just print the consoleMessage 
+    // this is often used in forms 
+    
+
+
+    
+
+
+
+</script>
+</html>
