@@ -195,6 +195,35 @@ function newGame() {
 
 ```
 
+## Project 5
+
+```javascript
+
+const insert = document.getElementById('insert');
+
+window.addEventListener('keydown', (e) => {
+  insert.innerHTML = `
+  <div class='color'>
+  <table>
+    <tr>
+      <th>Key</th>
+      <th>Key Code</th>
+      <th>Code</th>
+    </tr>
+    <tr>
+      <th>${e.key === ' ' ? 'Spacee' : e.key}</th>
+      // Here Ternary Operator is used because Space is not Detected so We Did it Manually
+      <th>${e.keyCode}</th>
+      <th>${e.code}</th>
+    </tr>
+  </table>
+  </div>
+  `;
+});
+
+
+```
+
 ## Project 6
 
 ```javascript
