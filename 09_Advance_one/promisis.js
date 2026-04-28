@@ -126,3 +126,4 @@ fetch('https://jsonplaceholder.typicode.com/users')
 
 // Here the Response from the url is displaying first then the other work is dont 
 // understand why it happens like this 
+// also understand async and await
