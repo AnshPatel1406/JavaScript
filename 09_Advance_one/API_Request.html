@@ -1,0 +1,56 @@
+<!--  use JSONFormatter.org to understand the structure of any API 
+ try tree format in it to perfectly understand things 
+
+ https://api.github.com/users/AnshPatel1406 -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color:white">
+    0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+</body>
+<script>
+    // AJAX XML REQUEST
+    const requestUrl = 'https:/api.github.com/users/AnshPatel1406' 
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',requestUrl)
+    // console.log(xhr.readyState ); // to know the state of request 
+    
+    //to continuesly track the request 
+    // call any function whenever state changes
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+
+        // to detect state 
+        if(xhr.readyState===4){
+            let data = this.responseText
+            console.log(data.followers); // retruns undefined 
+            console.log(typeof data) // string 
+            // here the data has come in form of string 
+
+            // now to convert it into JSON 
+            
+            data = JSON.parse(this.responseText)
+            console.log(typeof data); // Object
+            console.log(data.followers);
+            
+            
+            
+            
+        }
+    } 
+
+    xhr.send()
+    
+
+</script>
+</html>
