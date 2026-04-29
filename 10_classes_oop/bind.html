@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Button Clicked</button>
+</body>
+<script>
+    class React {
+        constructor(){
+            this.library = "React"
+            this.server = "http://localhost:300"
+
+            // requirement
+            document.querySelector('button').addEventListener('click',this.handleClick)
+
+
+            document.querySelector('button').addEventListener('click',this.handleClick.bind(this))
+        }
+        handleClick(){
+            console.log("Button Clicked")
+            console.log(this); // returns button 
+            
+            console.log(this.server); // returns server thing when we use bind // will return entire Class as Object Prototype and has access 
+            // to all the methods of class // <-- when we use bind 
+
+            // this.server give server // only console.log(this) will return an object of Class which is used to access everything 
+            
+        }
+    }
+
+    const app = new React()
+</script>
+</html>
