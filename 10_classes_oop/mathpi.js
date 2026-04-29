@@ -46,3 +46,7 @@ for (const [key,value] of Object.entries(chai)) {
 // if(typeof value !== ' function'){
 // console.log(asfsdfg);
 // }
+
+
+// go to console in browser and research the functions and prototypes in the dropdown for and 
+// reasearch them for indepth knowledge
